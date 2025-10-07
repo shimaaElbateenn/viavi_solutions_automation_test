@@ -1,0 +1,18 @@
+[
+  {
+    "gender" : "mrs",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe1@test.com",
+    "password": "Test@12333",
+    "birthday": "04/21/1998"
+  },
+  {
+    "gender" : "mrs",
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "email": "jane.smith2@test.com",
+    "password": "Test@12333",
+    "birthday": "04/21/1997"
+  }
+]
