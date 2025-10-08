@@ -32,7 +32,6 @@ public class CreateAccountPage extends BasePage {
     }
 
     public void enterUserData(String gender, String firstName, String lastName, String email, String password, String birthday) {
-        switchToFrame(main_iframe, "Switch to main frame");
         selectGender(gender);
         sendData(field_firstName,firstName, "Enter First Name");
         sendData(field_lasttName,lastName, "Enter Last Name");

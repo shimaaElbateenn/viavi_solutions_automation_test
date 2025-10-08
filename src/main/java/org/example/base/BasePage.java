@@ -11,6 +11,10 @@ public class BasePage extends CustomDriver{
         this.driver = driver;
     }
 
+    public void switchToLiveFrame() {
+        switchToFrame(main_iframe, "Switch to frame");
+    }
+
     public boolean verifyTitle(String expectedTitle) {
         return driver.getTitle().equalsIgnoreCase(expectedTitle);
     }

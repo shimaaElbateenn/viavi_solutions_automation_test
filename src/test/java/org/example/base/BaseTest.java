@@ -27,4 +27,5 @@ public class BaseTest {
     public void driver_tearDown() {
         WebDriverFactory.getInstance().quitDriver();
     }
+
 }

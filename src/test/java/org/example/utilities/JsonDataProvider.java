@@ -1,25 +1,20 @@
 package org.example.utilities;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.data.AccountData;
+import org.example.models.AccountData;
+import org.testng.annotations.DataProvider;
 
-import java.io.File;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 public class JsonDataProvider {
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
-    /**
-     * Read test data from JSON file in resources folder
-     */
+    @DataProvider(name = "jsonAccountData")
     public static Object[][] getAccountData() throws Exception {
         // Read JSON file
         InputStream inputStream = JsonDataProvider.class
                 .getClassLoader()
-                .getResourceAsStream("testdata/accounts.json");
+                .getResourceAsStream(Constants.JSON_FILE);
 
         // Convert JSON to AccountData array
         ObjectMapper mapper = new ObjectMapper();

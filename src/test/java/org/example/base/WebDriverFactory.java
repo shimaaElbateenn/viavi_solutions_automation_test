@@ -45,7 +45,7 @@ public class WebDriverFactory {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            threadDriver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+            threadDriver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
             threadDriver.get().manage().window().maximize();
         }
         return threadDriver.get();
@@ -58,7 +58,6 @@ public class WebDriverFactory {
     private void setDriver(String browser) {
         String driverPath = "";
         String os = Constants.OS_NAME.toLowerCase().substring(0,3);
-        String directory = Constants.USER_DIRECTORY + Constants.DRIVER_DIRECTORY;
         String driverKey = "";
         String driverValue = "";
 
@@ -72,9 +71,6 @@ public class WebDriverFactory {
             log.info("Browser type not supported");
         }
 
-        driverPath = directory + driverValue + (os.equals("win") ? ".exe" : "");
-        log.info("Driver Binary :: " + driverPath);
-        System.setProperty(driverKey, driverPath);
     }
 
     private FirefoxOptions setFirefoxOptions() {

@@ -12,9 +12,7 @@ public class LoginPage extends BasePage {
     }
 
     public CreateAccountPage ClickSignUp() {
-        switchToFrame(main_iframe, "Switch to frame");
         elementClick(link_signUp,"Click Sign Up");
-        switchToDefaultContent();
         return new CreateAccountPage(driver);
     }
 }
