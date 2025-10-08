@@ -18,18 +18,30 @@ public class TestScenario extends BaseTest {
 
     @Test(dataProvider = "jsonAccountData", dataProviderClass = JsonDataProvider.class)
     public void testScenario(AccountData accountData) {
+        //1. Create an account.
         loginPage = homePage.clickSignIn();
         createAccountPage = loginPage.ClickSignUp();
         createAccountPage.enterUserData(accountData.getGender(), accountData.getFirstName(),
                 accountData.getLastName(), accountData.getEmail(),
                 accountData.getPassword(), accountData.getBirthday());
         homePage = createAccountPage.clickSubmit();
+
+        //2. From the homepage, search for “notebook.”
         homePage.searchFromCatalog("notebook");
+
+        //3. Select the first search result and assert that it has an image.
         searchResultDetailsScreen = homePage.selectFirstSearchResult();
         Assert.assertTrue(searchResultDetailsScreen.verifyCoverImage());
+
+        //4. Add it to the cart.
         searchResultDetailsScreen.clickAddToCart();
+
+        //5. Navigate to the cart.
         shoppingCartPage = searchResultDetailsScreen.navigateToCart();
+
+        //6. Assert that the product is successfully added.
         Assert.assertTrue(shoppingCartPage.verifyAddingItem());
+
         homePage.signOut();
     }
 
